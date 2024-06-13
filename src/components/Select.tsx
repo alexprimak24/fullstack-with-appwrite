@@ -1,7 +1,7 @@
 import React, { useId, ForwardedRef } from "react";
 
 interface SelectProps {
-  options: string;
+  options: str;
   label: string;
   className: string;
 }
@@ -18,7 +18,9 @@ function Select(
           {label}
         </label>
       )}
-      <select {...props} id={id} ref={ref}></select>
+      <select {...props} id={id} ref={ref}>
+        {}
+      </select>
     </div>
   );
 }
