@@ -1,6 +1,10 @@
 import conf from '../conf/conf'
 import { Client, Databases, Storage, Query } from "appwrite";
 
+interface getPostProps {
+  slug: string;
+}
+
 export class Service {
   client = new Client()
   databases;
@@ -13,8 +17,24 @@ export class Service {
     
     this.databases = new Databases(this.client)
     this.bucket = new Storage(this.bucket)
+  }
 
-    async getPost()
+  async getPost({ slug } : getPostProps) {
+    try {
+      return await this.databases.getDocument(conf.appwriteDatabaseId,conf.appwriteCollectionId,slug)
+    } catch (error) {
+      console.log("Appwrite service :: getPost() ::", error)
+      return false
+    }
+  } 
+
+  async getPosts(queries = [Query.equal("status", "active")]) {
+    try {
+      return await this.databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId,queries)
+    } catch (error) {
+      console.log("Appwrite service :: getPosts() ::", error)
+        return false
+    }
   }
 }
 const client = new Client()
