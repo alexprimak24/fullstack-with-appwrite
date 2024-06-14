@@ -1,32 +1,31 @@
 import conf from "../conf/conf";
 import { Client, Databases, Storage, Query, ID } from "appwrite";
 
-interface getPostProps {
+export interface getPostProps {
   slug: string;
 }
 
-interface createPostProps {
+export interface createPostProps {
   title: string;
   slug: string;
   content: string;
-  featuredImage: string;
+  featuredImage?: string;
   status: string;
   userId: string;
 }
 
-interface updatePostProps {
+export interface updatePostProps {
   title: string;
   slug: string;
   content: string;
-  featuredImage: string;
+  featuredImage?: string;
   status: string;
 }
 
-interface uploadFileProps {
+export interface uploadFileProps {
   file: File;
 }
-
-interface FileIdProps {
+export interface FileIdProps {
   fileId: string;
 }
 
