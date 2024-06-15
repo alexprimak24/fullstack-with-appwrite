@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import appwriteSercive from "../appwrite/config";
 
-interface PostCardProps {
+export interface PostCardProps {
   $id: string;
   title: string;
   featuredImage: string;
