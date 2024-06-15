@@ -1,13 +1,13 @@
 import conf from "../conf/conf";
 import { Client, Account, ID } from "appwrite";
 
-interface createAccountProps {
+export interface createAccountProps {
   email: string;
   password: string;
   name: string;
 }
 
-interface loginProps {
+export interface loginProps {
   email: string;
   password: string;
 }

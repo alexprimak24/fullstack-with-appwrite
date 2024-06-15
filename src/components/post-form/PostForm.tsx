@@ -9,7 +9,7 @@ import Button from "../Button";
 import appwriteService from "../../appwrite/config";
 import { createPostProps, updatePostProps } from "../../appwrite/config"; // Adjust the import path if necessary
 
-interface Post {
+export interface Post {
   title: string;
   slug: string;
   content: string;
@@ -48,7 +48,7 @@ export default function PostForm({ post }: PostFormProps) {
   const navigate = useNavigate();
   const userData = useSelector((state: AuthStateProps) => state.auth.userData);
 
-  const submit = async (data: PostFormData) => {
+  const submit = async (data: any) => {
     if (!userData) {
       console.error("User data is null");
       return;
